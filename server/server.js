@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const cookieParser = require("cookie-parser");
 
 const PORT = 5000;
 
@@ -15,6 +16,7 @@ const habitRouter = require("./routes/habitRouter.js");
  * define route handlers
  */
 app.use(express.json());
+app.use(cookieParser());
 // localhost:5000/addHabit
 app.use("/habit", habitRouter);
 app.use("/signup", signupRouter);

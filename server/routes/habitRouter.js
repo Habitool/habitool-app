@@ -4,9 +4,10 @@ const habitController = require("../controllers/habitController.js");
 
 const habitRouter = express.Router();
 
-//localhost:5000/login
+//localhost:5000/habit/addHabit
+//localhost:5000/habit/get
 
-habitRouter.post("/", (req, res) => {
+habitRouter.post("/addHabit", (req, res) => {
   return;
 });
 
