@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "NODE_ENV=development webpack serve --open",
     "server": "nodemon server/server.js",
     "dev": "concurrently \"NODE_ENV=development webpack serve --open\" \"npm run server\"",
     "build": "NODE_ENV=production webpack"
@@ -26,6 +26,11 @@
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
     "css-loader": "^5.2.6",
+    "eslint": "^7.28.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "nodemon": "^2.0.7",
@@ -41,6 +46,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.13",
+    "pg": "^8.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
