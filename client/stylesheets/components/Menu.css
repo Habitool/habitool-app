@@ -1,0 +1,45 @@
+.menu {
+  width: 25vw;
+  height: 100vh;
+  background-color: #3488ce;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: all 500ms ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*  http://expressjs.com/en/resources/middleware/body-parser.html */
+.menu.show {
+  transform: translateX(0);
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.menu__links > li {
+  display: flex;
+  align-items: center;
+}
+
+.menu__links > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  flex: 1;
+  padding: 1rem;
+}
+
+.menu__links > li > a:hover {
+  background-color: #fff;
+  color: #3488ce;
+}
