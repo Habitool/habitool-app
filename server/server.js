@@ -8,6 +8,7 @@ const PORT = 5000;
 const signupRouter = require("./routes/signupRouter.js");
 const loginRouter = require("./routes/loginRouter.js");
 const habitRouter = require("./routes/habitRouter.js");
+const taskRouter = require("./routes/taskRouter.js");
 
 // localhost:5000/login
 // localhost:5000/signup
@@ -18,6 +19,7 @@ const habitRouter = require("./routes/habitRouter.js");
 app.use(express.json());
 app.use(cookieParser());
 // localhost:5000/addHabit
+app.use("/task", taskRouter);
 app.use("/habit", habitRouter);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
