@@ -9,19 +9,22 @@
 
 .signupScreen__form-container {
   width: 500px;
-  height: 400px;
-  padding: 60px;
-  background-color: #3488ce;
+  height: 475px;
+  padding: 50px 60px 70px 60px;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .signupScreen__form-container h1 {
-  color: #fff;
+  color: #3488ce;
+  text-align: center;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .signupScreen__form-container > form {
@@ -35,7 +38,6 @@
 .signupScreen__form-container > form > div {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .signupScreen__form-container > form > div > label {
@@ -43,17 +45,47 @@
 } 
 
 .signupScreen__form-container > form > div > input {
-  padding: .5rem;
-  border: none;
-  border-radius: 6px;
+  padding: .7rem;
+  border: solid 1px #3488ce;
+  border-radius: 3px;
   margin-top: 3px;
   margin-bottom: 7px;
 }
 
 .signupScreen__form-container > form > div > button {
   padding: 10px 0;
-  border: none;
-  border-radius: 5px;
+  background-color: #3488ce;
+  color: #fff;
+  border: solid 2px #3488ce;
+  border-radius: 3px;
+  font-weight: 500;
   margin-top: 20px;
   cursor: pointer;
+  overflow: hidden;
+  transition: .3s all ease;
+  font-size: 1rem;
 }
+
+.signupScreen__form-container > form > div > button:hover {
+  background-color: #28699e;
+  color: #fff;
+}
+
+#form__cancel-btn {
+  padding: 7px 0;
+  border: solid 1px red;
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 3px;
+  transition: .3s all ease;
+}
+
+#form__cancel-btn:hover {
+  background-color: red;
+  color: #fff;
+}
+

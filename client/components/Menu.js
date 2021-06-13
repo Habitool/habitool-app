@@ -15,7 +15,7 @@ const Menu = ({ show, click }) => {
     <div className={menuClass.join(' ')} onClick={click}>
       <ul className="menu__links" >
         <li>
-          <Link to="/login">
+          <Link to="/">
             Log In
           </Link>
         </li>
