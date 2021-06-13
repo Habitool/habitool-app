@@ -4,13 +4,11 @@ import '../stylesheets/components/HabitTile.css';
 
 const HabitTile = () => {
     
-    
-    
-    return (
-        <div>
+  return (
+    <div>
             
-        </div>
-    );
+    </div>
+  );
 };
 
 
