@@ -1,11 +1,15 @@
 import React from 'react';
 import '../stylesheets/screens/DashboardScreen.css';
 
+// Component Imports
+import StarterTile from '../components/StarterTile';
+
+
 const DashboardScreen = () => {
   return (
     <div className="dashboard__screen">
       <div className="dashboard__habit-tiles">
-        <h1>Tiles will go Here</h1>
+        <StarterTile />
       </div>
     </div>
   );

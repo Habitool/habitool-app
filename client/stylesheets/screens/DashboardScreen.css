@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 80px;
+  align-items: start;
+  padding: 90px;
+}
+
+.dashboard__habit-tiles {
+  padding: 50px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
