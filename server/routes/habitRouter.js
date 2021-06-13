@@ -8,7 +8,7 @@ const habitRouter = express.Router();
 //localhost:5000/habit/get
 
 habitRouter.post("/addHabit", habitController.addHabit, (req, res) => {
-  return res.status(200).json({ result: "habit is added" });
+  return res.status(200).json({ updatedDoc: res.locals.updatedDoc });
 });
 
 module.exports = habitRouter;

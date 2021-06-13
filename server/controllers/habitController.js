@@ -19,7 +19,7 @@ habitController.addHabit = async (req, res, next) => {
   if (inDB) return next({ err: "habit is already in the db for that user" });
   // insert the habit into db if found
   try {
-    await db.User.findOneAndUpdate(
+    const updatedDoc = await db.User.findOneAndUpdate(
       { email },
       {
         $push: {
@@ -39,6 +39,7 @@ habitController.addHabit = async (req, res, next) => {
         returnNewDocument: true,
       }
     );
+    res.locals.updatedDoc = updatedDoc;
   } catch (e) {
     return next({ err: "error with updating the habit: " + e });
   }
