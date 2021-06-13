@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
-  padding: 90px;
+  align-items: center;
+  padding: 100px 50px;
 }
 
 .dashboard__habit-tiles {
