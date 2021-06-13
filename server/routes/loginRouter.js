@@ -12,7 +12,7 @@ loginRouter.get("/", (req, res) => {
 });
 
 loginRouter.post("/", loginController.verifyUser, (req, res) => {
-  return res.status(200).json({ result: "successful login" });
+  return res.status(200).json({ doc: res.locals.doc });
 });
 
 module.exports = loginRouter;

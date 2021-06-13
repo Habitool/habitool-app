@@ -18,6 +18,7 @@ loginController.verifyUser = async (req, res, next) => {
     const passwordMatched = await bcrypt.compare(password, hashedPass);
     if (passwordMatched) {
       res.cookie("SSID", cookie);
+      res.locals.doc = user;
       return next();
     }
     return next({ err: "invalid email/password" });
