@@ -13,6 +13,7 @@
 .navbar__logo {
   color: #fff;
   font-size: 2rem;
+  text-decoration: none;
 }
 
 .navbar__logo:hover{
