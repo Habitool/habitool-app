@@ -19,6 +19,14 @@ const taskRouter = require('./routes/taskRouter.js');
 app.use(express.json());
 app.use(cookieParser());
 // localhost:5000/addHabit
+// app.get('/dashboard', (req, res) => {
+//   const cookieValue = req.cookies.SSID;
+//   // console.log(cookieValue);
+//   // check if cookie matches cookie in db
+//   const user = await db.User.findOne({ cookie });
+//   console.log("user found from db", user);
+//   if (user.cookie !== cookieValue) return res.redirect("/");
+// })
 app.use('/task', taskRouter);
 app.use('/habit', habitRouter);
 app.use('/signup', signupRouter);

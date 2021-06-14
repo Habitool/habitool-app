@@ -1,6 +1,8 @@
 // import { USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGNIN_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL, USER_LOGOUT } from '../constants/userConstants';
 // import * as types from '../constants/actionTypes';
 import * as types from '../constants/userConstants.js';
+import * as actionTypes from '../constants/actionTypes.js';
+
 
 const initialState = {
   email: '',
@@ -41,6 +43,14 @@ const userReducer = (state = initialState, action) => {
     return {...state, signupLoading: false, email: action.payload.email, fullName: action.payload.fullName };
   case types.USER_REGISTER_FAIL:
     return {...state, signupLoading: false, error: action.payload };
+  case actionTypes.CREATE_HABIT_SUCCESS: {
+    console.log(action.payload);
+    return {...state, habit: action.payload};
+  }
+  case actionTypes.DELETE_HABIT_SUCCESS: {
+    console.log(action.payload);
+    return {...state, habit: action.payload};
+  }
   
   default: 
     return state;

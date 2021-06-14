@@ -1,9 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../stylesheets/componentStyles/HabitTile.css';
+import { connect, useDispatch } from 'react-redux';
+
+import { deleteHabit } from '../redux/actions/habitActions';
+
+const mapStateToProps = state => ({
+  email: state.user.email
+});
 
 const HabitTile = (props) => {
-    
+  const dispatch = useDispatch();
+  const deleteHabitHandler = () => {
+    deleteHabit({ email: props.email, habit: props.name }, dispatch);
+  };
+
+  // const incrementProgress = () => {
+
+  // }
+
+
   return (
     <div className="habit-tile">
       <div className="habit-tile__header">
@@ -65,12 +81,11 @@ const HabitTile = (props) => {
           <button id="habit__check-btn">
             <i className="fas fa-check"></i>
           </button>
-
-          <Link to='/habit/123' id="habit__edit-btn">
+          <Link to={`dashboard/habit/${props.name}`} id="habit__edit-btn">
             <i className="fas fa-pen"></i>
           </Link>
 
-          <button id="habit__delete-btn">
+          <button id="habit__delete-btn" onClick={deleteHabitHandler}>
             <i className="fas fa-trash"></i>
           </button>
         </div>
@@ -81,4 +96,4 @@ const HabitTile = (props) => {
 
 
 
-export default HabitTile;
+export default connect(mapStateToProps, null)(HabitTile);

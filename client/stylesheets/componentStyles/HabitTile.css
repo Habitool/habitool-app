@@ -24,6 +24,7 @@
 }
 
 .habit-tile__header > h2 > a {
+  text-transform: capitalize;
   color: #ffffff;
   text-decoration: none;
 }

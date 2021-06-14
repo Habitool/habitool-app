@@ -22,7 +22,6 @@ const signin = async (email, password, dispatch) => {
   } catch (error) {
     dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
   }
-  // };
 };
 
 const register = (name, email, password) => async (dispatch) => {
