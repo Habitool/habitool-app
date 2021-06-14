@@ -54,6 +54,10 @@ const SignupScreen = (props) => {
             <button type="submit">Submit</button>
             <Link to='/' id="form__cancel-btn">Cancel</Link> 
           </div>
+          <div className="signup__message">
+            {loading && <h4>Loading...</h4>}
+            {error && <h4>{error}</h4>}
+          </div>
         </form>
       </div>
     </div>
