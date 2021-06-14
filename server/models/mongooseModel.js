@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-// const MONGO_URI =
-//   'mongodb+srv://db:db123@cluster0.spklt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const MONGO_URI =
+  'mongodb+srv://db:db123@cluster0.spklt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 // URI for local machine
-const MONGO_URI = 'mongodb://localhost:27017/habitool';
+// const MONGO_URI = 'mongodb://localhost:27017/habitool';
 
 mongoose
   .connect(MONGO_URI, {
@@ -30,6 +30,7 @@ const userSchema = new Schema({
       description: String,
       progress: Number,
       total: Number,
+      weekly: [Number],
       streak: Number,
       startDate: String,
       endDate: String,

@@ -6,6 +6,7 @@ const loginController = {};
 loginController.verifyUser = async (req, res, next) => {
   const { email, password } = req.body;
   console.log("arrived here");
+  console.log('email', email);
   try {
     // [ user, user2 ] = [a]
     // user = a   user2 = undefined

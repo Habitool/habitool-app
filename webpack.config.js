@@ -40,6 +40,10 @@ module.exports = {
       '/signup': {
         target: 'http://localhost:5000',
         secure: false
+      },
+      '/habit': {
+        target: 'http://localhost:5000',
+        secure: false
       }
     }
   },

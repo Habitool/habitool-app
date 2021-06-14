@@ -6,25 +6,33 @@ import {
   USER_REGISTER_SUCCESS, USER_REGISTER_FAIL, USER_LOGOUT
 } from '../constants/userConstants';
 
-const signin = (email, password) => {
-  return async (dispatch) => {
-    dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
-    try {
-      const { data } = await Axios.post('/login', { email, password });
-      console.log(data);
-      dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
-      // Cookie.set('userInfo', JSON.stringify(data));
-    } catch (error) {
-      dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
-    }
-  };
+const signin = async (email, password, dispatch) => {
+  console.log('email1 is',email);
+  const copyEmail = email;
+  // return async (dispatch) => {
+  // dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
+  dispatch({ type: USER_SIGNIN_REQUEST });
+  try {
+    console.log('email2 is', copyEmail);
+    const {data} = await Axios.post('/login', { email: copyEmail, password });
+    console.log('query result',data);
+    const { email, fullName, habit } = data.doc;
+    dispatch({ type: USER_SIGNIN_SUCCESS, payload: {email: copyEmail, fullName, habit} });
+    // Cookie.set('userInfo', JSON.stringify(data));
+  } catch (error) {
+    dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
+  }
+  // };
 };
 
 const register = (name, email, password) => async (dispatch) => {
-  dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
+  // dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
+  dispatch({ type: USER_REGISTER_REQUEST });
   try {
     const { data } = await Axios.post('/signup', { name, email, password });
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+    console.log(data);
+    const actionPayload = { email, fullName: name };
+    dispatch({ type: USER_REGISTER_SUCCESS, payload: actionPayload });
     // Cookie.set('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({ type: USER_REGISTER_FAIL, payload: error.message });

@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 
 // Import CSS
 import '../stylesheets/screenStyles/SignupScreen.css';
 
 // Import Register Action from userActions
 import { register } from '../redux/actions/userActions';
+
+const mapStateToProps = state => ({
+  loading: state.user.signupLoading,
+  error: state.user.error,
+  email: state.user.email
+});
 
 const SignupScreen = (props) => {
   const [name, setName] = useState('');
@@ -16,8 +22,12 @@ const SignupScreen = (props) => {
   const dispatch = useDispatch();
 
   // Pull userRegister state object from State using useSelector hook
-  const userRegister = useSelector(state => state.userRegister);
-  const { loading, userInfo, error } = userRegister;
+  // const userRegister = useSelector(state => state.userRegister);
+  // const { loading, userInfo, error } = userRegister;
+
+  const loading = props.loading;
+  const userInfo = props.email;
+  const error = props.error;
 
   // signup form submit handler function
   // on form submit will dispatch register action func
@@ -29,6 +39,7 @@ const SignupScreen = (props) => {
   // render login screen once user registers
   useEffect(() => {
     if(userInfo) {
+      // come back to this ( redirect to dashboard)
       props.history.push('/');
     }
   }, [userInfo]);
@@ -64,4 +75,5 @@ const SignupScreen = (props) => {
   );
 };
 
-export default SignupScreen;
+// export default SignupScreen;
+export default connect(mapStateToProps, null)(SignupScreen);

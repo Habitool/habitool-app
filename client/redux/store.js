@@ -10,18 +10,18 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 // REDUCERS IMPORT
 import {
-  userSigninReducer,
-  userRegisterReducer
-} from './reducers/userReducers';
-// import reducers from './reducers/index';
+  userReducer
+} from './reducers/userReducers.js';
+
 
 // store middleware into an array
 const middleware = [ thunk ];
 
 // combine reducers into single reducer object using CombineReducer
 const reducer = combineReducers({
-  userSignin: userSigninReducer,
-  userRegister: userRegisterReducer
+  // userSignin: userReducer,
+  // userRegister: userReducer
+  user: userReducer
 });
 
 // do we need access to Redux dev tools?
@@ -34,4 +34,4 @@ const store = createStore(
 //do we need a store.subscribe statement here?
 //store.subscribe(()  => console.log('Updated State: ', store.getState()));
 
-export default store;
+export { reducer, store };

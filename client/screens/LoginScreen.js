@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { Link, Redirect, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch, connect } from 'react-redux';
+
 
 // Import Css
 import '../stylesheets/screenStyles/LoginScreen.css';
@@ -9,23 +10,36 @@ import '../stylesheets/screenStyles/LoginScreen.css';
 import { signin } from '../redux/actions/userActions';
 
 
+const mapStateToProps = state => ({
+  loading: state.user.signinLoading,
+  error: state.user.error,
+  email: state.user.email
+});
+
 const LoginScreen = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
 
-  const userSignin = useSelector(state => state.userSignin);
-  const { loading, userInfo, error } = userSignin;
+  // const userSignin = useSelector(state => state.userSignin);
+  // const { loading, userInfo, error } = userSignin;
+  const loading = props.loading;
+  const userInfo = props.email;
+  const error = props.error;
+
+  const history = useHistory()
+
 
   const loginSubmitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    // dispatch(signin(email, password));
+    signin(email,password, dispatch);
   };
 
   useEffect(() => {
     if (userInfo) {
-      props.history.push(`/dashboard/${userInfo.name}`);
+      history.push(`/dashboard/${userInfo.name}`);
     }
   }, [userInfo]);
 
@@ -33,6 +47,7 @@ const LoginScreen = (props) => {
     <div className="login__screen">
       <div className="loginScreen__form-container">
         <h1>Login</h1>
+        {/* {userInfo ? <Redirect to='/dashboard'/> : null} */}
         <form onSubmit={loginSubmitHandler}>
           <div>
             <label htmlFor="email">Email</label>
@@ -56,5 +71,6 @@ const LoginScreen = (props) => {
   );
 };
 
-export default LoginScreen;
+// export default LoginScreen;
+export default connect(mapStateToProps, null)(LoginScreen);
 
