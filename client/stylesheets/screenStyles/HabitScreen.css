@@ -1,0 +1,22 @@
+.habitScreen {
+  height: 100%;
+  padding: 150px 100px;
+}
+
+.habitScreen__console {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitScreen__console-header {
+  padding: 30px;
+  text-align: center;
+  background-color: #3488ce;
+}
+
+.habitScreen__console-header > h1 {
+  font-weight: 500;
+  color: #fff;
+  font-size: 2.5rem;
+}

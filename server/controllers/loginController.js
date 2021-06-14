@@ -12,7 +12,7 @@ loginController.verifyUser = async (req, res, next) => {
     const [user] = await db.User.find({ email });
     console.log("return obj", user);
     // [{password: fdashjfksda, cookie: jdfaslk}]
-    if (user === undefined) return next({ err: "invalid email/password" + e });
+    if (user === undefined) return next({ err: "invalid email/password" });
     // {password: fasdjljkflds}
     const { password: hashedPass, cookie } = user;
     const passwordMatched = await bcrypt.compare(password, hashedPass);

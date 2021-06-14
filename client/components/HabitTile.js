@@ -8,7 +8,7 @@ const HabitTile = () => {
     <div className="habit-tile">
       <div className="habit-tile__header">
         <h2>
-          <Link>Exercise</Link>
+          <Link to='habit/123'>Exercise</Link>
         </h2>
       </div>
       <div className="habit-tile__content-container">
@@ -66,7 +66,7 @@ const HabitTile = () => {
             <i className="fas fa-check"></i>
           </button>
 
-          <Link to='/habit/1234' id="habit__edit-btn">
+          <Link to='/habit/123' id="habit__edit-btn">
             <i className="fas fa-pen"></i>
           </Link>
 

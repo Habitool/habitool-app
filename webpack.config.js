@@ -32,6 +32,14 @@ module.exports = {
       '/api/**': {
         target: 'http://localhost:5000',
         secure: false
+      },
+      '/login': {
+        target: 'http://localhost:5000',
+        secure: false
+      },
+      '/signup': {
+        target: 'http://localhost:5000',
+        secure: false
       }
     }
   },
@@ -48,7 +56,7 @@ module.exports = {
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
