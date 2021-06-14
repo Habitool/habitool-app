@@ -11,7 +11,8 @@ const initialState = {
   habit: [], //array of objects
   signupLoading: false, 
   signinLoading: false,
-  error: false
+  error: false,
+  habitIndex: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -50,6 +51,14 @@ const userReducer = (state = initialState, action) => {
   case actionTypes.DELETE_HABIT_SUCCESS: {
     console.log(action.payload);
     return {...state, habit: action.payload};
+  }
+  case actionTypes.UPDATE_HABIT_SUCCESS: {
+    console.log(action.payload);
+    return {...state, habit: action.payload, habitIndex: null};
+  }
+  case 'SET_HABIT_INDEX': {
+    console.log('action payload for set habit index ', action.payload);
+    return {...state, habitIndex: action.payload};
   }
   
   default: 

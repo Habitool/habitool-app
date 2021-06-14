@@ -24,30 +24,44 @@ import {
 
 
 const createHabit = async ( habits, dispatch ) => {
-    dispatch({ type: CREATE_HABIT_REQUEST, payload: { habits } });
-    const habitsCopy = habits;
-    try {
-      const { data } = await Axios.post('/habit/addHabit', habitsCopy);
-      const habit = data.updatedDoc.habit;
-      console.log(data); // {docs: {fdsjakl} } data.docs.habit
-      dispatch({ type: CREATE_HABIT_SUCCESS, payload: habit });
-    } catch (error) {
-      dispatch({ type: CREATE_HABIT_FAIL, payload: error.message });
+  dispatch({ type: CREATE_HABIT_REQUEST, payload: { habits } });
+  const habitsCopy = habits;
+  try {
+    const { data } = await Axios.post('/habit/addHabit', habitsCopy);
+    const habit = data.updatedDoc.habit;
+    console.log(data); // {docs: {fdsjakl} } data.docs.habit
+    dispatch({ type: CREATE_HABIT_SUCCESS, payload: habit });
+  } catch (error) {
+    dispatch({ type: CREATE_HABIT_FAIL, payload: error.message });
   }
 };
 
-const updateHabit = ( habits ) => {
-  return async (dispatch) => {
-    dispatch({ type: UPDATE_HABIT_REQUEST, payload: { habits } });
-    try {
-      const { data } = await Axios.post('/', {  });
-      console.log(data);
-      dispatch({ type: UPDATE_HABIT_SUCCESS, payload: data });
-    } catch (error) {
-      dispatch({ type: UPDATE_HABIT_FAIL, payload: error.message });
-    }
-  };
+const updateHabit = async ( habit, dispatch ) => {
+  dispatch({ type: UPDATE_HABIT_REQUEST});
+  const habitCopy = habit;
+  try {
+    const { data } = await Axios.post('/habit/editHabit', habitCopy);
+    console.log(data);
+    const actionPayload = data.updatedDoc.habit;
+    console.log(actionPayload);
+    dispatch({ type: UPDATE_HABIT_SUCCESS, payload: actionPayload });
+  } catch (error) {
+    dispatch({ type: UPDATE_HABIT_FAIL, payload: error.message });
+  }
 };
+
+// const updateHabit = ( habits ) => {
+//   return async (dispatch) => {
+//     dispatch({ type: UPDATE_HABIT_REQUEST, payload: { habits } });
+//     try {
+//       const { data } = await Axios.post('/', {  });
+//       console.log(data);
+//       dispatch({ type: UPDATE_HABIT_SUCCESS, payload: data });
+//     } catch (error) {
+//       dispatch({ type: UPDATE_HABIT_FAIL, payload: error.message });
+//     }
+//   };
+// };
 
 // const deleteHabit = ( habits ) => {
 //   return async (dispatch) => {

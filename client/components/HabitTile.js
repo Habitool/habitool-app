@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import '../stylesheets/componentStyles/HabitTile.css';
 import { connect, useDispatch } from 'react-redux';
@@ -14,17 +14,13 @@ const HabitTile = (props) => {
   const deleteHabitHandler = () => {
     deleteHabit({ email: props.email, habit: props.name }, dispatch);
   };
-
-  // const incrementProgress = () => {
-
-  // }
-
+  const [habitId, setHabitId] = useState('');
 
   return (
     <div className="habit-tile">
       <div className="habit-tile__header">
         <h2>
-          <Link to='habit/123'>{props.name}</Link>
+          <Link to={`dashboard/habit/${props.name}`}>{props.name}</Link>
         </h2>
       </div>
       <div className="habit-tile__content-container">
@@ -35,7 +31,7 @@ const HabitTile = (props) => {
         <div className="habit-tile__streak">
           <span>
             <h4>Your Streak:</h4> 
-            <span>{props.streak}</span>
+            <span>{props.total}</span>
           </span>
         </div>
         <div className="habit-tile__days-grp">
@@ -81,7 +77,10 @@ const HabitTile = (props) => {
           <button id="habit__check-btn">
             <i className="fas fa-check"></i>
           </button>
-          <Link to={`dashboard/habit/${props.name}`} id="habit__edit-btn">
+
+          <Link to={`dashboard/habit/${props.name}`} id="habit__edit-btn" name={props.buttonId} onClick={(e) => {
+            console.log('target name: ', e.target.name);
+            dispatch({ type: 'SET_HABIT_INDEX', payload: parseInt(e.target.name)})}}>
             <i className="fas fa-pen"></i>
           </Link>
 

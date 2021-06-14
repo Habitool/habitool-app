@@ -39,7 +39,8 @@ const LoginScreen = (props) => {
 
   useEffect(() => {
     if (userInfo) {
-      history.push(`/dashboard/${userInfo.name}`);
+      // history.push(`/dashboard/${userInfo.name}`);
+      history.push(`/dashboard`);
     }
   }, [userInfo]);
 
