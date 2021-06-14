@@ -11,4 +11,12 @@ habitRouter.post("/addHabit", habitController.addHabit, (req, res) => {
   return res.status(200).json({ updatedDoc: res.locals.updatedDoc });
 });
 
+habitRouter.post("/removeHabit", habitController.removeHabit, (req, res) => {
+  return res.status(200).json({ updatedDoc: res.locals.updatedDoc });
+});
+
+habitRouter.post("/editHabit", habitController.editHabit, (req, res) => {
+  return res.status(200).json({ updatedDoc: res.locals.updatedDoc });
+});
+
 module.exports = habitRouter;

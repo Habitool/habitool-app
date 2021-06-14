@@ -36,7 +36,7 @@ habitController.addHabit = async (req, res, next) => {
         },
       },
       {
-        returnNewDocument: true,
+        new: true,
       }
     );
     res.locals.updatedDoc = updatedDoc;
@@ -44,6 +44,72 @@ habitController.addHabit = async (req, res, next) => {
     return next({ err: "error with updating the habit: " + e });
   }
   return next();
+};
+
+habitController.removeHabit = async (req, res, next) => {
+  // req.body = {email, habit}
+  // req.cookies
+  const { email, habit } = req.body;
+  const cookieValue = req.cookies.SSID;
+  // check if cookie matches cookie in db
+  const user = await db.User.findOne({ email });
+  if (user.cookie !== cookieValue) return res.redirect("/");
+  try {
+    const updatedDoc = await db.User.findOneAndUpdate(
+      { email },
+      {
+        $pull: { habit: { name: habit } },
+      },
+      {
+        new: true,
+      }
+    );
+    console.log("\n new doc", updatedDoc);
+    res.locals.updatedDoc = updatedDoc;
+    return next();
+  } catch (e) {
+    return next({ err: "error with removing habit: " + e });
+  }
+};
+
+habitController.editHabit = async (req, res, next) => {
+  // req.body = { email, habit, newName, newDescription, newTotal, newStartDate, newEndDate}
+  const {
+    email,
+    habit,
+    newName,
+    newDescription,
+    newTotal,
+    newStartDate,
+    newEndDate,
+  } = req.body;
+  const cookieValue = req.cookies.SSID;
+
+  // check if cookie matches cookie in db
+  const user = await db.User.findOne({ email });
+  if (user.cookie !== cookieValue) return res.redirect("/");
+
+  const arr = [newName, newDescription, newTotal, newStartDate, newEndDate];
+  const arr2 = ["name", "description", "total", "startDate", "endDate"];
+
+  const changes = {};
+  arr.forEach((el, i) => {
+    if (el) {
+      Object.assign(changes, { ["habit.$[elem]." + arr2[i]]: el });
+    }
+  });
+  console.log(changes);
+  try {
+    const updatedDoc = await db.User.findOneAndUpdate({ email }, changes, {
+      arrayFilters: [{ "elem.name": habit }],
+      new: true,
+    });
+    console.log(updatedDoc);
+    res.locals.updatedDoc = updatedDoc;
+    return next();
+  } catch (e) {
+    return next({ err: "err with editing habit: " + e });
+  }
 };
 
 // habitController.addHabit = async (req, res, next) => {

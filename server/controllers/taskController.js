@@ -71,7 +71,7 @@ taskController.addTask = async (req, res, next) => {
       },
       {
         arrayFilters: [{ "elem.name": habit }],
-        returnNewDocument: true,
+        new: true,
       }
     );
     console.log("update doc ", updatedDoc);
