@@ -27,37 +27,37 @@ const HabitTile = () => {
           <div className="habit-tile__days">
             <div className="mon-check">
               <label htmlFor="mon-check">Mon</label>
-              <input id="mon-check" name="mon-check" type="checkbox" value="1" checked disabled/>
+              <input id="mon-check" name="mon-check" type="checkbox" value="1" disabled/>
             </div>
 
             <div className="tue-check">
               <label htmlFor="tue-check">Tue</label>
-              <input id="tue-check" name="tues-check" type="checkbox" value="1" checked disabled/>
+              <input id="tue-check" name="tues-check" type="checkbox" value="1" disabled/>
             </div>
 
             <div className="wed-check">
               <label htmlFor="wed-check">Wed</label>
-              <input id="wed-check" name="wed-check" type="checkbox" value="1" checked disabled/>
+              <input id="wed-check" name="wed-check" type="checkbox" value="1" disabled/>
             </div>
 
             <div className="thu-check">
               <label htmlFor="thurs-check">Thu</label>
-              <input id="thu-check" name="thurs-check" type="checkbox" value="1" checked disabled/>
+              <input id="thu-check" name="thurs-check" type="checkbox" value="1" disabled/>
             </div>
 
             <div className="fri-check">
               <label htmlFor="fri-check">Fri</label>
-              <input id="fri-check" name="fri-check" type="checkbox" value="1" checked disabled/>
+              <input id="fri-check" name="fri-check" type="checkbox" value="1" disabled/>
             </div>
 
             <div className="sat-check">
               <label htmlFor="sat-check">Sat</label>
-              <input id="sat-check" name="sat-check" type="checkbox" value="1" checked disabled/>
+              <input id="sat-check" name="sat-check" type="checkbox" value="1" disabled/>
             </div>
 
             <div className="sun-check">
               <label htmlFor="sun-check">Sun</label>
-              <input id="sun-check" name="sun-check" type="checkbox" value="1" checked disabled/>
+              <input id="sun-check" name="sun-check" type="checkbox" value="1" disabled/>
             </div>
           </div>
         </div>
@@ -66,9 +66,9 @@ const HabitTile = () => {
             <i className="fas fa-check"></i>
           </button>
 
-          <button id="habit__edit-btn">
+          <Link to='/habit/1234' id="habit__edit-btn">
             <i className="fas fa-pen"></i>
-          </button>
+          </Link>
 
           <button id="habit__delete-btn">
             <i className="fas fa-trash"></i>
