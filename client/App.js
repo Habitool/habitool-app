@@ -30,7 +30,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' render={() => <LoginScreen isLoggedIn={loggedIn}  loggedInSetter={setLoggedIn} />} />
           <Route exact path='/signup' component={SignupScreen} />
-          <Route exact path='/dashboard' component={DashboardScreen} />
+          <Route exact path='/dashboard/:id' component={DashboardScreen} />
         </Switch>
       </main>
     </Router>
