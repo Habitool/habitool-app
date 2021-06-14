@@ -2,24 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../stylesheets/componentStyles/HabitTile.css';
 
-const HabitTile = () => {
+const HabitTile = (props) => {
     
   return (
     <div className="habit-tile">
       <div className="habit-tile__header">
         <h2>
-          <Link to='habit/123'>Exercise</Link>
+          <Link to='habit/123'>{props.name}</Link>
         </h2>
       </div>
       <div className="habit-tile__content-container">
         <div className="habit-tile__goal-desc">
           <h4>Your Goal:</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et gravida lectus, vel ultricies ligula.</p>
+          <p>{props.description}</p>
         </div>
         <div className="habit-tile__streak">
           <span>
             <h4>Your Streak:</h4> 
-            <span>7</span> / 7 Days
+            <span>{props.streak}</span>
           </span>
         </div>
         <div className="habit-tile__days-grp">
