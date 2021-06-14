@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const path = require("path");
-const cookieParser = require("cookie-parser");
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const PORT = 5000;
 
-const signupRouter = require("./routes/signupRouter.js");
-const loginRouter = require("./routes/loginRouter.js");
-const habitRouter = require("./routes/habitRouter.js");
-const taskRouter = require("./routes/taskRouter.js");
+const signupRouter = require('./routes/signupRouter.js');
+const loginRouter = require('./routes/loginRouter.js');
+const habitRouter = require('./routes/habitRouter.js');
+const taskRouter = require('./routes/taskRouter.js');
 
 // localhost:5000/login
 // localhost:5000/signup
@@ -19,10 +19,10 @@ const taskRouter = require("./routes/taskRouter.js");
 app.use(express.json());
 app.use(cookieParser());
 // localhost:5000/addHabit
-app.use("/task", taskRouter);
-app.use("/habit", habitRouter);
-app.use("/signup", signupRouter);
-app.use("/login", loginRouter);
+app.use('/task', taskRouter);
+app.use('/habit', habitRouter);
+app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 // app.use("/api", apiRouter);
 
 /**
@@ -34,12 +34,12 @@ app.use("/login", loginRouter);
 //   res.sendFile(path.join(__dirname, "../client/")); // fill the path later
 // });
 
-app.use("*", (req, res) => res.status(404).send("NotFound"));
+app.use('*', (req, res) => res.status(404).send('NotFound'));
 
 app.use((e, req, res, next) => {
   const defaultErr = {
     status: 500,
-    err: "An error occurred",
+    err: 'An error occurred',
   };
   const errorObj = Object.assign({}, defaultErr, e);
   console.log(errorObj.err);

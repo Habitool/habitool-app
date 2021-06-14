@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../stylesheets/components/HabitTile.css';
+import '../stylesheets/componentStyles/HabitTile.css';
 
 const HabitTile = () => {
     
