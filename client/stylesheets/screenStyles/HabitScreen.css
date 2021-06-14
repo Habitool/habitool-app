@@ -1,12 +1,19 @@
 .habitScreen {
   height: 100%;
-  padding: 150px 100px;
+  padding: 150px 100px 80px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .habitScreen__console {
+  width: 1000px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .habitScreen__console-header {
@@ -19,4 +26,150 @@
   font-weight: 500;
   color: #fff;
   font-size: 2.5rem;
+}
+
+.habitScreen__console-info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.habitScreen__console-info > h2 {
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.habitScreen__info-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.habitScreen__info-container h4 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.info-container__date-grp {
+  display: flex;
+  flex-direction: column;
+}
+
+#info-date-range {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.habitScreen__days-completed {
+  display: flex;
+  margin-top: 15px;
+}
+
+.habitScreen__console-edit {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#habitScreen__input-grp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* .habitScreen__current-streak > h4:nth-of-type(2) {
+  margin-top: 8px;
+} */
+
+.habitScreen__edit-goal > label {
+  font-weight: bold;
+}
+
+.habitScreen__edit-goal > select,
+ #habitScreen__start-date > input, 
+ #habitScreen__end-date > input,
+ .habitScreen__description-edit > textarea {
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.habitScreen__edit-goal,
+.habitScreen__dates-select,
+.habitScreen__description-edit,
+#habitScreen__start-date,
+#habitScreen__end-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#habitScreen__end-date {
+  margin-top: 15px;
+}
+
+.habitScreen__button-grp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+#habitScreen__form-action-btns {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#habitScreen__back-btn {
+  position: relative;
+  left: 5px;
+  text-decoration: none;
+  padding: 0;
+  text-align: center;
+  color: #3488ce;
+  background-color: transparent;
+  font-size: 2.1rem;
+  border-radius: 8px;
+  transition: all 200ms ease-in;
+}
+
+#habitScreen__back-btn:hover {
+  left: 0;
+}
+
+#habitScreen__update-btn {
+  margin-right: 15px;
+  padding: 8px 15px;
+  color: #3488ce;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 1px solid #3488ce;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+#habitScreen__update-btn:hover {
+  background-color: #3488ce;
+  color: #fff;
+}
+
+#habitScreen__delete-btn {
+  text-decoration: none;
+  padding: 9px 17px;
+  color: #EF5350;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 1px solid #EF5350;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+#habitScreen__delete-btn:hover {
+  background-color: #EF5350;
+  color: #fff;
 }
