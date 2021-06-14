@@ -31,6 +31,7 @@ const userSchema = new Schema({
       progress: Number,
       total: Number,
       weekly: [Number],
+      cadence: String,
       streak: Number,
       startDate: String,
       endDate: String,

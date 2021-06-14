@@ -11,10 +11,10 @@ const mapStateToProps = state =>{
   console.log('state',state);
   console.log('state.user',state.user);
   console.log('state.user.habit',state.user.habit);
- return ({
-  habits: state.user.habit,
-});
 
+  return ({
+    habits: state.user.habit
+  });
 }
 
 const DashboardScreen = (props) => {

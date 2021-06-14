@@ -5,10 +5,11 @@ const habitController = {};
 habitController.addHabit = async (req, res, next) => {
   // req.body -> {email: dasfjlk, habit: 'fdas', description: ''}
   // req.cookies = {ssid: 'fdsjalk'}
-  const { email, habit, description, total, startDate, endDate } = req.body;
-  console.log(req.cookies);
+  console.log(req.body);
+  const { email, habit, description, total, startDate, endDate, cadence } = req.body;
+  // console.log(req.cookies);
   const cookieValue = req.cookies.SSID;
-  console.log(cookieValue);
+  // console.log(cookieValue);
   // check if cookie matches cookie in db
   const user = await db.User.findOne({ email });
   console.log("user found from db", user);
@@ -28,6 +29,8 @@ habitController.addHabit = async (req, res, next) => {
             streak: 0,
             progress: 0,
             total,
+            cadence,
+            weekly: [false, false, false, false, false, false, false],
             description,
             startDate,
             endDate,
@@ -39,6 +42,7 @@ habitController.addHabit = async (req, res, next) => {
         new: true,
       }
     );
+    console.log('updated doc is', updatedDoc);
     res.locals.updatedDoc = updatedDoc;
   } catch (e) {
     return next({ err: "error with updating the habit: " + e });

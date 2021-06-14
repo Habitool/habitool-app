@@ -33,11 +33,11 @@ const App = () => {
           <Route exact path='/signup'>
             <SignupScreen />
           </Route>
+          <Route exact path='dashboard/habit/:id'>
+            <HabitScreen />
+          </Route>
           <Route path='/dashboard'>
             <DashboardScreen />
-          </Route>
-          <Route exact path='/habit/:id'>
-            <HabitScreen />
           </Route>
         </Switch>
       </main>
