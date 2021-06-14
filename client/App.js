@@ -33,9 +33,7 @@ const App = () => {
           <Route exact path='/signup'>
             <SignupScreen />
           </Route>
-          <Route exact path='dashboard/habit/:id'>
-            <HabitScreen />
-          </Route>
+          <Route path='/dashboard/habit' component={HabitScreen} />
           <Route path='/dashboard'>
             <DashboardScreen />
           </Route>

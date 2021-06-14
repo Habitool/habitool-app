@@ -21,8 +21,8 @@ const DashboardScreen = (props) => {
   const arr = [];
   console.log(props);
   console.log(props.habits);
-  props.habits.forEach( (el) => {
-    arr.push(<HabitTile name={el.name} description={el.description} progress={el.progress} total />);
+  props.habits.forEach( (el, i) => {
+    arr.push(<HabitTile key={i} buttonId={i} name={el.name} description={el.description} progress={el.progress} total />);
   }); 
   console.log(arr);
   return (
