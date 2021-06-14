@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/components/StarterTile.css';
+import '../stylesheets/componentStyles/StarterTile.css';
 
 const StarterTile = () => {
   return (

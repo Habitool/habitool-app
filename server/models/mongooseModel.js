@@ -1,7 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const MONGO_URI =
-  "mongodb+srv://db:db123@cluster0.spklt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const MONGO_URI =
+//   'mongodb+srv://db:db123@cluster0.spklt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+// URI for local machine
+const MONGO_URI = 'mongodb://localhost:27017/habitool';
 
 mongoose
   .connect(MONGO_URI, {
@@ -9,9 +12,9 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // sets the name of the DB that our collections are part of
-    dbName: "habitool",
+    dbName: 'habitool',
   })
-  .then(() => console.log("Connected to Mongo DB."))
+  .then(() => console.log('Connected to Mongo DB.'))
   .catch((err) => console.log(err));
 
 const Schema = mongoose.Schema;
@@ -47,7 +50,7 @@ const userSchema = new Schema({
   ],
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 // const taskSchema = new Schema({
 //   name: String,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../stylesheets/components/Menu.css';
+import '../stylesheets/componentStyles/Menu.css';
 
 const Menu = ({ show, click }) => {
   // create a var to an array with an element ['menu']

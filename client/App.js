@@ -28,9 +28,15 @@ const App = () => {
       {/* <h1>Hello From HabiTool</h1> */}
       <main>
         <Switch>
-          <Route exact path='/' render={() => <LoginScreen isLoggedIn={loggedIn}  loggedInSetter={setLoggedIn} />} />
-          <Route exact path='/signup' component={SignupScreen} />
-          <Route exact path='/dashboard/:id' component={DashboardScreen} />
+          <Route exact path='/'>
+            <LoginScreen isLoggedIn={loggedIn}  loggedInSetter={setLoggedIn} />
+          </Route>
+          <Route exact path='/signup'>
+            <SignupScreen />
+          </Route>
+          <Route exact path='/dashboard/:id'>
+            <DashboardScreen />
+          </Route>
         </Switch>
       </main>
     </Router>

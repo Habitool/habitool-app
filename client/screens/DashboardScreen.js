@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/screens/DashboardScreen.css';
+import '../stylesheets/screenStyles/DashboardScreen.css';
 
 // Component Imports
 import StarterTile from '../components/StarterTile';
