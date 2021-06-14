@@ -6,8 +6,7 @@ import './stylesheets/App.css';
 
 // Screens Imports
 import DashboardScreen from './screens/DashboardScreen';
-
-// import HabitScreen from './screens/HabitScreen';
+import HabitScreen from './screens/HabitScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 
@@ -34,8 +33,11 @@ const App = () => {
           <Route exact path='/signup'>
             <SignupScreen />
           </Route>
-          <Route exact path='/dashboard/:id'>
+          <Route exact path='/dashboard'>
             <DashboardScreen />
+          </Route>
+          <Route exact path='/habit/:id'>
+            <HabitScreen />
           </Route>
         </Switch>
       </main>
