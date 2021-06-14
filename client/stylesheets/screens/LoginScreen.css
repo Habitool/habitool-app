@@ -10,18 +10,20 @@
 .loginScreen__form-container {
   width: 500px;
   height: 400px;
-  padding: 60px;
-  background-color: #3488ce;
+  padding: 50px 60px 70px 60px;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .loginScreen__form-container h1 {
-  color: #fff;
+  color: #3488ce;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .loginScreen__form-container > form {
@@ -43,17 +45,43 @@
 } 
 
 .loginScreen__form-container > form > div > input {
-  padding: .6rem;
-  border: none;
-  border-radius: 6px;
+  padding: .7rem;
+  border: solid 1px #3488ce;
+  border-radius: 3px;
   margin-top: 3px;
   margin-bottom: 7px;
 }
 
-.loginScreen__form-container > form > div > button {
-  padding: 12px 0;
-  border: none;
-  border-radius: 5px;
+#login__btn {
+  padding: 10px 0;
+  background-color: #3488ce;
+  color: #fff;
+  border: solid 2px #3488ce;
+  border-radius: 3px;
+  font-weight: 500;
   margin-top: 20px;
   cursor: pointer;
+  overflow: hidden;
+  transition: .3s all ease;
+  font-size: 1rem;
+}
+
+#login__btn:hover {
+ background-color: #28699e;
+ color: #fff;
+}
+
+#login-form__sign-btn {
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: .3s all ease;
+}
+
+#signup-redirect {
+  margin-top: 20px;
+}
+
+#login-form__signup-btn:hover {
+  color: #28699e;
 }

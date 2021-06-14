@@ -29,11 +29,11 @@ module.exports = {
 
     headers: { "Access-Control-Allow-Origin": "*" },
     proxy: {
-      "/": {
-        target: "http://localhost:5000/",
-        secure: false,
-      },
-    },
+      '/api/**': {
+        target: 'http://localhost:5000',
+        secure: false
+      }
+    }
   },
   plugins: [htmlPlugin],
   module: {

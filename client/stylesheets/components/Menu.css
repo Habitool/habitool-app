@@ -1,5 +1,5 @@
 .menu {
-  width: 25vw;
+  width: 30vw;
   height: 100vh;
   background-color: #3488ce;
   position: fixed;
@@ -7,10 +7,11 @@
   left: 0;
   z-index: 200;
   transform: translateX(-100%);
-  transition: all 500ms ease-out;
+  transition: all 700ms ease-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 /*  http://expressjs.com/en/resources/middleware/body-parser.html */
 .menu.show {
@@ -33,6 +34,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
   font-size: 1.5rem;
   color: #fff;
   flex: 1;

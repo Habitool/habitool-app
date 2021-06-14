@@ -1,0 +1,142 @@
+.habit-tile {
+  width: 325px;
+  height: 400px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.habit-tile__header {
+  width: 100%;
+  height: 95px;
+  background-color: #3488ce;
+  padding:  1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.habit-tile__header > h2 {
+  font-weight: 400;
+}
+
+.habit-tile__header > h2 > a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.habit-tile__content-container {
+  padding: 1.4rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.habit-tile__days-grp {
+  display: flex;
+  flex-direction: column;
+}
+
+.habit-tile__days-grp > h4 {
+  margin-bottom: 5px;
+}
+
+.habit-tile__days {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mon-check,
+.tue-check,
+.wed-check,
+.thu-check,
+.fri-check,
+.sat-check,
+.sun-check {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#mon-check,
+#tue-check,
+#wed-check,
+#thu-check,
+#fri-check,
+#sat-check,
+#sun-check {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+}
+
+.habit-tile__btn-grp {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#habit__check-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 12px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
+  transition: all 200ms ease-out;
+}
+
+#habit__check-btn:hover {
+  background-color: #2E7D32;
+}
+
+#habit__edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px;
+  background-color: transparent;
+  border: 2px solid #3488ce;
+  color: #3488ce;
+  font-size: 1.2rem;
+  padding: 11px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+#habit__edit-btn:hover {
+  background-color: #3488ce;
+  color: #fff;
+}
+
+#habit__delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #EF5350;
+  color: #EF5350;
+  font-size: 1.2rem;
+  padding: 11px 13px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+#habit__delete-btn:hover {
+  background-color: #EF5350;
+  color: #fff;
+}

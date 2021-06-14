@@ -1,4 +1,5 @@
 .navbar {
+  position: fixed;
   width: 100%;
   height: 80px;
   background-color: #3488ce;
@@ -12,6 +13,11 @@
 .navbar__logo {
   color: #fff;
   font-size: 2rem;
+  text-decoration: none;
+}
+
+.navbar__logo:hover{
+  color: #fff;
 }
 
 .hamburger__menu {
