@@ -140,4 +140,78 @@ taskController.addTask = async (req, res, next) => {
   return next();
 };
 
+taskController.removeTask = async (req, res, next) => {
+  // req.body = {email, habit, task}
+  // req.cookies
+  const { email, habit, task } = req.body;
+  const cookieValue = req.cookies.SSID;
+  // check if cookie matches cookie in db
+  const user = await db.User.findOne({ email });
+  if (user.cookie !== cookieValue) return res.redirect("/");
+  try {
+    const updatedDoc = await db.User.findOneAndUpdate(
+      { email },
+      {
+        $pull: { "habit.$[elem].tasks": { name: task } },
+      },
+      {
+        arrayFilters: [{ "elem.name": habit }],
+        new: true,
+      }
+    );
+    console.log("\n new doc", updatedDoc);
+    res.locals.updatedDoc = updatedDoc;
+    return next();
+  } catch (e) {
+    return next({ err: "error with removing task: " + e });
+  }
+};
+
+taskController.editTask = async (req, res, next) => {
+  // req.body = { email, habit, newName, newDescription, newTotal, newStartDate, newEndDate}
+  const {
+    email,
+    habit,
+    task,
+    newName,
+    newDescription,
+    newGoalNum,
+    newStartDate,
+    newEndDate,
+  } = req.body;
+  const cookieValue = req.cookies.SSID;
+
+  // check if cookie matches cookie in db
+  const user = await db.User.findOne({ email });
+  if (user.cookie !== cookieValue) return res.redirect("/");
+
+  const arr = [newName, newDescription, newGoalNum, newStartDate, newEndDate];
+  const arr2 = ["name", "description", "goalNum", "startDate", "endDate"];
+
+  const changes = {};
+  arr.forEach((el, i) => {
+    if (el) {
+      Object.assign(changes, {
+        ["habit.$[outter].tasks.$[inner]" + arr2[i]]: el,
+      });
+    }
+  });
+  console.log(changes);
+  try {
+    const updatedDoc = await db.User.findOneAndUpdate(
+      { email },
+      { "habit.$[outter].tasks.$[inner].name": newName },
+      {
+        arrayFilters: [{ "outter.name": habit }, { "inner.name": task }],
+        new: true,
+      }
+    );
+    console.log(updatedDoc);
+    res.locals.updatedDoc = updatedDoc;
+    return next();
+  } catch (e) {
+    return next({ err: "err with editing habit: " + e });
+  }
+};
+
 module.exports = taskController;
