@@ -1,23 +1,18 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const MONGO_URI =
-  'mongodb+srv://db:db123@cluster0.spklt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
-// URI for local machine
-// const MONGO_URI = 'mongodb://localhost:27017/habitool';
+const Schema = mongoose.Schema;
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose
   .connect(MONGO_URI, {
-    // options for the connect method to parse the URI
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // sets the name of the DB that our collections are part of
     dbName: 'habitool',
   })
   .then(() => console.log('Connected to Mongo DB.'))
   .catch((err) => console.log(err));
 
-const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   email: String,
