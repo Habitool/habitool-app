@@ -4,9 +4,13 @@ const bcrypt = require("bcryptjs");
 const signupController = {};
 
 signupController.addUser = async (req, res, next) => {
-  // req.body = { email: password: full_name:}
-  const { email, password, fullName } = req.body;
-  // []
+  console.log('in add user');
+  const {
+    email,
+    password,
+    name,
+  } = req.body;
+  console.log(email, password, name);
   try {
     const results = await db.User.find({ email });
     if (results.length) return next({ err: "email has already been used" });
@@ -14,12 +18,12 @@ signupController.addUser = async (req, res, next) => {
     return next({ err: "error with searching db for email: " + e });
   }
   const hashedPass = await bcrypt.hash(password, 5);
-  const cookie = await bcrypt.hash(fullName, 5);
+  const cookie = await bcrypt.hash(name, 5);
   try {
     await db.User.create({
       email,
       password: hashedPass,
-      fullName,
+      fullName: name,
       cookie,
       habit: [],
     });

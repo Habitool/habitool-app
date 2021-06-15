@@ -29,6 +29,7 @@ const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST });
   try {
     const { data } = await Axios.post('/signup', { name, email, password });
+    debugger
     console.log(data);
     const actionPayload = { email, fullName: name };
     dispatch({ type: USER_REGISTER_SUCCESS, payload: actionPayload });
