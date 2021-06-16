@@ -35,16 +35,25 @@ const DashboardScreen = (props) => {
   console.log(props.habits);
   // convert timeOfDay property on props.habits to Integer
   // '11:44'.split(':') ==> ['11', '44']  ==> parseInt('11', 10) ===> 11 * 3600 == 234234234 seconds  
-  props.habits.forEach(habit => {
-    console.log('this is a habit', habit);
-  });
-  // timeOfDay: "09:19"
+  
   const mappedHabits = props.habits.map(habit => {
-    const timeInSeconds = parseInt(habit.timeOfDay.split(':')[0], 10) * 3600 + parseInt(habit.timeOfDay.split(':')[1], 10) * 60;
-    // (timeInSeconds > 3600 * 12) ? habit. 
+    const [hours, minutes] = habit.timeOfDay.split(':');
+    const parsedHours = parseInt(hours);
+    const parsedMinutes = parseInt(minutes);
+    const timeInSeconds = (parsedHours * 3600) + (parsedMinutes * 60);
+    // const timeInSeconds = parseInt(habit.timeOfDay.split(':')[0], 10) * 3600 + parseInt(habit.timeOfDay.split(':')[1], 10) * 60;
+    let newTimeofDay;
+
+    if (timeInSeconds >= 3600 * 13) {
+      newTimeofDay = parsedHours - 12 + ':' + minutes + ' PM';
+    } else {
+      newTimeofDay = parsedHours + ':' + minutes + ' AM';
+    }
+    // (timeInSeconds >= 3600 * 12) ? newTimeofDay += ' PM' : newTimeofDay += ' AM';
     return ({
       ...habit,
       timeInSeconds,
+      timeOfDay: newTimeofDay,
     });
   });
 
