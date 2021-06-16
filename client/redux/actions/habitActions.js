@@ -22,11 +22,12 @@ import {
 // };
 
 
-
+// { name, frequencey, ..., timeOfDay }
 const createHabit = async ( habits, dispatch ) => {
   dispatch({ type: CREATE_HABIT_REQUEST, payload: { habits } });
   const habitsCopy = habits;
   try {
+    // 1. Our habit is going to be posted to the backend
     const { data } = await Axios.post('/habit/addHabit', habitsCopy);
     const habit = data.updatedDoc.habit;
     console.log(data); // {docs: {fdsjakl} } data.docs.habit

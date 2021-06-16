@@ -28,6 +28,10 @@ const HabitTile = (props) => {
           <h4>Your Goal:</h4>
           <p>{props.description}</p>
         </div>
+        <div className="habit-tile__goal-desc">
+          <h4>Time of Day:</h4>
+          <p>{props.timeOfDay}</p>
+        </div>
         <div className="habit-tile__streak">
           <span>
             <h4>Your Streak:</h4> 

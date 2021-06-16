@@ -2,11 +2,21 @@ const db = require("../models/mongooseModel.js");
 
 const habitController = {};
 
+// 2. This is where the habit is actually be added into the database. 
 habitController.addHabit = async (req, res, next) => {
   // req.body -> {email: dasfjlk, habit: 'fdas', description: ''}
   // req.cookies = {ssid: 'fdsjalk'}
   console.log(req.body);
-  const { email, habit, description, total, startDate, endDate, cadence } = req.body;
+  const {
+    email,
+    habit,
+    description,
+    total,
+    startDate,
+    endDate,
+    cadence,
+    timeOfDay, //!!!!
+  } = req.body;
   // console.log(req.cookies);
   const cookieValue = req.cookies.SSID;
   // console.log(cookieValue);
@@ -35,6 +45,7 @@ habitController.addHabit = async (req, res, next) => {
             startDate,
             endDate,
             history: [],
+            timeOfDay,
           },
         },
       },

@@ -13,7 +13,13 @@ const StarterTile = (props) => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [description, setDescription] = useState('');
+  const [timeOfDay, setTimeOfDay] = useState('');
+  // const [habitType, sethabitType] = useState('');
 
+  
+
+
+  // dispatch() is the method used to dispatch actions and trigger state changes to the store. 
   const dispatch = useDispatch();
 
   // const createdTile = useSelect(state => state.createTile)
@@ -21,16 +27,24 @@ const StarterTile = (props) => {
   // on submit handler
   const createTileSubmitHandler = (e) => {
     e.preventDefault();
+    console.log(timeOfDay);
+    console.log(typeof timeOfDay);
 
-    createHabit({
+    debugger
+
+    const newHabit = {
       email: props.email,
       habit: name,
       description: description,
       total: 0,
       startDate: startDate,
       endDate: endDate,
-      cadence: cadence
-    }, dispatch);
+      cadence: cadence,
+      timeOfDay: timeOfDay,
+      // habit;Type: habitType,
+    };
+
+    createHabit(newHabit, dispatch);
   };
 
   return (
@@ -58,6 +72,10 @@ const StarterTile = (props) => {
         <div id="end-date-group">
           <label htmlFor="end-date">End Date:</label>
           <input type="date" id="end-date" name="habit-end" required onChange={(e) => setEndDate(e.target.value)}/>
+        </div>
+        <div className="starter-tile__repeater">
+          <label htmlFor="cadence-selector">Time of day:</label>
+          <input type="time" id="start-date" name="habit-start" required onChange={(e) => setTimeOfDay(e.target.value)}/>
         </div>
         <div className="starter-tile__description">
           <label htmlFor="habit-description">Describe your goal...</label>
